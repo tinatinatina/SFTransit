@@ -88,14 +88,7 @@ function makeVehicleList(xml) {
 }
 
 function plotVehicles(list){
-  var first = false;
   console.log('list1',list);
-    // var w = 960,
-    // h = 860,
-    // scale = 350000,
-    // latitude = 37.7750,
-    // longitude = -122.4183,
-    // center = d3.geo.centroid(hoods);
 
     projection = d3.geo.albers()
     .scale(scale) 
@@ -127,15 +120,15 @@ function plotVehicles(list){
       .style("fill", function(d) {
         return color[d.route[0]];
       });
-   // });
+
 }
   text_xml('actransit');
   text_xml('sf-muni');
+
 setInterval(function(){
   text_xml('actransit');
   text_xml('sf-muni');
-  
-}, 15000)
-console.log('done');
+}, 15000);
+
 
 

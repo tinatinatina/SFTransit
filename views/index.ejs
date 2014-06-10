@@ -15,13 +15,16 @@
     <script src='javascripts/d3.js'></script>
     <script src='javascripts/AppController.js'></script>
     <script src='javascripts/Bus.directives.js'></script>
+    <script src='javascripts/Routes.directives.js'></script>
     <script src='javascripts/BusLocations.js'></script>
     <script src='javascripts/ServiceRoutes.js'></script>
   </head>
   <body ng-controller="homeCTRL">
   <H1>SF Transit Routes</H1>
     <div class="d3chart" label="d3Buses" data="d3Data" id="Buses">
+      <d3-Routes label="d3RouteLabel" data="d3RouteData" id="Routes">
       <d3-Buses label="d3Label" data="d3Data" id="Buses"></d3-Buses> 
+      </d3-Buses>
     </div>
 
   </body>

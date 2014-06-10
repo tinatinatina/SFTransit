@@ -1,4 +1,4 @@
-var AppController = angular.module('AppController', [ 'BusLocations', 'Bus.directives', 'ServiceRoutes']);
+var AppController = angular.module('AppController', [ 'BusLocations', 'Bus.directives', 'ServiceRoutes', 'Bus.directives']);
  
 AppController.controller('homeCTRL', ['$scope', '$http', 'busMap', 'routeMap', 'xmlParser',
   function ($scope, $http, busMap, routeMap, xmlParser) {
@@ -6,9 +6,11 @@ AppController.controller('homeCTRL', ['$scope', '$http', 'busMap', 'routeMap', '
     h = 860,
     scale = 350000,
     latitude = 37.7750,
-    longitude = -122.4183;
+    longitude = -122.4183,
+    first = true;
 
     $scope.d3Data = [];
+    $scope.d3RouteData = "hi mom";
     makeMap();
 
 function makeMap(){
@@ -58,9 +60,16 @@ function makeMap(){
     function makeRequest(searchParam){
       busMap.getBusLocation(searchParam).then(function(result){
           $scope.d3Data = result;
-
+      });
+      routeMap.getRoutes(searchParam).then(function(routes){
+          $scope.d3RouteData = routes;
+          if(first){
+            $scope.searchRoutes = routes;
+            first = false;
+          }
       });
     }
+
     makeRequest();
     
 }]);

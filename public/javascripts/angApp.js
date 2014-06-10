@@ -1,5 +1,5 @@
 var angApp = angular.module('AngApp', [
-  'ngRoute', 'd3', 'AppController', 'Bus.directives', 
+  'ngRoute', 'd3', 'AppController', 'Bus.directives', 'Routes.directives',
   'ServiceRoutes', 'xml'
 ]);
 

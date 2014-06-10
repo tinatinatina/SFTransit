@@ -12,11 +12,8 @@ angular.module('Bus.directives', [])
 
         link: function(scope, element, attrs) {
 
-          // d3Service.d3().then(function(d3) {
             console.log("d3 done");
            
-
-
             window.onresize = function(){
               scope.$apply();
             };
@@ -39,10 +36,8 @@ angular.module('Bus.directives', [])
               latitude = 37.7750,
               longitude = -122.4183;
 
-              // function makeVehicleList(xml) {
                   var busList = {"type": "GeometryCollection","geometries": [],"transform":{"scale":[0.000015799650249758944,0.000012629319171253285],"translate":[-122.51494757948463,37.70701707795974]}},
                   buses = data.getElementsByTagName("vehicle");
-                  console.log('buses',buses);
                   if (buses) {
                     for (var i = 0; i < buses.length; i++) {
                         var route = buses[i].getAttribute("routeTag"),
@@ -53,12 +48,7 @@ angular.module('Bus.directives', [])
                         busList.geometries.push(bus);
                     }
                   }
-                  console.log('buslist', busList);
-                  // plotVehicles(busList);
-              // }
 
-              // function plotVehicles(list){
-                // console.log('list1',list);
 
                   var projection = d3.geo.albers()
                   .scale(scale) 
@@ -87,9 +77,10 @@ angular.module('Bus.directives', [])
                     // .attr("class", function(d) { return d.route[0];})
                     .attr("id", function(d) { return d.route[1];})
                     .attr("r", 2)
-                    .style("fill", function(d) {
-                      return color['sf-muni'];
-                    });
+                    .style("fill", "white")
+                    .style({
+                      "stroke":"black", "stroke-width":2
+                    });;
 
               // }makeVehicleList(data);
             };

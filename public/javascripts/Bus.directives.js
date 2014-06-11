@@ -81,7 +81,15 @@ angular.module('Bus.directives', [])
                     .style("fill", "white")
                     .style({
                       "stroke":"black", "stroke-width":2
-                    });;
+                    });
+                    d3.selectAll('circle')
+                    .on('mouseover', function(){
+                        d3.select(this).enter().append("text")
+                        .text(function(d) {return d.id;})
+                        .attr("x", function(d) {return x(d.x);})
+                        .attr("y", function (d) {return y(d.y);});
+                      });
+                  
 
               // }makeVehicleList(data);
             };

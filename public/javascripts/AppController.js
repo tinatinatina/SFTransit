@@ -17,12 +17,10 @@ AppController.controller('homeCTRL', ['$scope', '$http', 'busMap', 'routeMap', '
     makeMap();
 
 function makeMap(){
-    d3.json("libs/sf.json", function (sf) {
+    d3.json("libs/sf2.js", function (sf) {
 
         var streets = topojson.feature(sf, sf.objects.streets),
-        hoods = topojson.feature(sf, sf.objects.neighborhoods),
-        arteries = topojson.feature(sf, sf.objects.arteries),
-        freeways = topojson.feature(sf, sf.objects.freeways);
+        hoods = topojson.feature(sf, sf.objects.neighborhoods);
 
         var svg = d3.select("d3-Buses").append("svg")
         .attr("width", w)

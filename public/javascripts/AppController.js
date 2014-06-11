@@ -17,7 +17,7 @@ AppController.controller('homeCTRL', ['$scope', '$http', 'busMap', 'routeMap', '
     makeMap();
 
 function makeMap(){
-    d3.json("public/libs/sf.json", function (sf) {
+    d3.json("libs/sf.json", function (sf) {
 
         var streets = topojson.feature(sf, sf.objects.streets),
         hoods = topojson.feature(sf, sf.objects.neighborhoods),

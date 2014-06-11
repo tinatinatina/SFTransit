@@ -1,3 +1,4 @@
+
 angular.module('Bus.directives', [])
   .directive('d3Buses', ['$window', '$q', 'xmlParser', function($window, $q, xmlParser) {
 
@@ -12,8 +13,6 @@ angular.module('Bus.directives', [])
 
         link: function(scope, element, attrs) {
 
-            console.log("d3 done");
-           
             window.onresize = function(){
               scope.$apply();
             };
@@ -28,7 +27,6 @@ angular.module('Bus.directives', [])
               }, true);
             
             scope.render = function(data) {
-              console.log("busDir");
               data = xmlParser.parse(data);
 
               var w = 960,

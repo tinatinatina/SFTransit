@@ -12,11 +12,6 @@ angular.module('Routes.directives', [])
 
         link: function(scope, element, attrs) {
 
-          // d3Service.d3().then(function(d3) {
-            console.log("d3 done");
-           
-
-
             window.onresize = function(){
               scope.$apply();
             };
@@ -32,7 +27,6 @@ angular.module('Routes.directives', [])
             
             scope.render = function(data) {
               data = xmlParser.parse(data);
-              console.log('RoutesDir');
 
               var w = 960,
               h = 860,
@@ -61,7 +55,6 @@ angular.module('Routes.directives', [])
                         routesList.features.push(route);
                     }
                   }
-                  console.log("routeslist", routesList.features);
 
                   d3.select("g").selectAll(".route").remove();
 

@@ -7,7 +7,6 @@ angular.module('ServiceRoutes', ["AngApp"])
     if(args !== ""){
       tag = '&r='+args;
     }
-    console.log('ServiceRoutes', args, tag);
     var deferred = $q.defer();    
     $http({
       method: 'GET',
@@ -20,7 +19,7 @@ angular.module('ServiceRoutes', ["AngApp"])
           routes = data;
         })
         .error(function(data, status, headers, config){
-          console.log('get error in getTweets');
+          console.log('error');
           deferred.reject();
         });
 

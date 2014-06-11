@@ -81,7 +81,6 @@ function makeMap(){
          searchTag = $scope.routeItems[selected].tag;
         
       }
-      console.log(searchTag);
       searchRequest(searchTag);
 
     };
@@ -92,10 +91,8 @@ function makeMap(){
     searchRequest(searchTag);
 
     $scope.d3RoutesOnClick = function(item){
-      console.log('item',item);
     };
     setInterval(function(){
-      console.log('setInt', searchTag);
       makeLocationRequest(searchTag);}, 15000);
     
 }]);

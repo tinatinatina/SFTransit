@@ -4,7 +4,6 @@ angular.module('BusLocations', ["AngApp"])
   var buses;
   var busFinder = function(){return buses;};
   var getBusLocation = function(args){
-    console.log('gbusloc',args);
     var deferred = $q.defer();
     var tag = '';
     if(args !== ""){

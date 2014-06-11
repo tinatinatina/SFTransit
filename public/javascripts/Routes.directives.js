@@ -61,7 +61,9 @@ angular.module('Routes.directives', [])
                         routesList.features.push(route);
                     }
                   }
-                  console.log('routeslist', routesList.features);
+                  console.log("routeslist", routesList.features);
+
+                  d3.select("g").selectAll(".route").remove();
 
                   var projection = d3.geo.albers()
                   .scale(scale) 
@@ -77,6 +79,7 @@ angular.module('Routes.directives', [])
                     .data(routesList.features)
                     .enter().append("path")
                     .attr("d", path)
+                    .attr("class", "route")
                     .style("stroke", function(d) {
                                 //Get data value
                                 var value = d.properties.color;

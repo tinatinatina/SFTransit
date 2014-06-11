@@ -10,6 +10,9 @@
     <script src="libs/angular-xml.min.js"></script>
     <script src="libs/d3.v3.min.js"></script>
     <script src="libs/topojson.v1.min.js"></script>
+    <script src="libs/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+    rel="stylesheet">
 
     <script src='javascripts/angApp.js'></script>
     <script src='javascripts/d3.js'></script>
@@ -20,9 +23,16 @@
     <script src='javascripts/ServiceRoutes.js'></script>
   </head>
   <body ng-controller="homeCTRL">
-  <H1>SF Transit Routes</H1>
+  <H1>SF Muni Routes</H1>  
+  <div id="searchWrapper">
+      <div class="form-group">
+        <form ng-submit="submitSearch(selected)">
+          <span><input type="text" ng-model="selected" placeholder="Search for Route..." typeahead="item for item in routeList | filter:$viewValue | limitTo:8" class="form-control"><button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-success searchButton">SEARCH</button><span>
+        </form>
+      </div>
+    </div>
     <div class="d3chart" label="d3Buses" data="d3Data" id="Buses">
-      <d3-Routes label="d3RouteLabel" data="d3RouteData" id="Routes">
+      <d3-Routes label="d3RouteLabel" data="d3RouteData" id="Routes" on-click="d3RoutesOnClick(item)">
       <d3-Buses label="d3Label" data="d3Data" id="Buses"></d3-Buses> 
       </d3-Buses>
     </div>

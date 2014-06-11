@@ -1,10 +1,15 @@
 body {
-  padding: 50px;
+  padding: 20px;
+  padding-left: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+input{
+  max-width: 35%;
+  display: inline !important;
 }
 svg {
   border: 1px solid black;

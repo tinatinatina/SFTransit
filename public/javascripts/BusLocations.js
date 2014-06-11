@@ -4,12 +4,15 @@ angular.module('BusLocations', ["AngApp"])
   var buses;
   var busFinder = function(){return buses;};
   var getBusLocation = function(args){
-    console.log('gbusloc');
+    console.log('gbusloc',args);
     var deferred = $q.defer();
-    var tag = args || 'sf-muni';
+    var tag = '';
+    if(args !== ""){
+      tag = '&r='+args;
+    }
     $http({
       method: 'GET',
-      url:"http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a="+tag,
+      url:"http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a=sf-muni"+tag,
       responseType: 'application/xml'
     })
         .success(function(data, status, headers, config){

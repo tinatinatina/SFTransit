@@ -28,6 +28,7 @@ angular.module('Bus.directives', [])
               }, true);
             
             scope.render = function(data) {
+              console.log("busDir");
               data = xmlParser.parse(data);
 
               var w = 960,

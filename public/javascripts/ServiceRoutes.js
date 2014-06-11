@@ -3,11 +3,15 @@ angular.module('ServiceRoutes', ["AngApp"])
   var routes;
   var routeResults = function(){return routes;};
   var getRoutes = function(args){
-    var tag = args || 'sf-muni';
+    var tag = '';
+    if(args !== ""){
+      tag = '&r='+args;
+    }
+    console.log('ServiceRoutes', args, tag);
     var deferred = $q.defer();    
     $http({
       method: 'GET',
-      url: "http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a="+tag,
+      url: "http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=sf-muni"+tag,
       responseType: 'application/xml'
     })
         .success(function(data, status, headers, config){
